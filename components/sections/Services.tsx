@@ -10,7 +10,7 @@ interface ServicesProps {
 
 const Services: React.FC<ServicesProps> = ({ number, title, description, color }) => {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 items-start gap-8 border-t border-gray-400">
+    <section className="grid grid-cols-1 md:grid-cols-3 items-start gap-8 border-t border-border container-wrapper">
       <div className="flex items-start text-xs py-2">
         <span className="mr-4">{number}</span>
         <span>{title}</span>

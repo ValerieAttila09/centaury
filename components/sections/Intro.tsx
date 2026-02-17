@@ -1,9 +1,11 @@
+'use client';
 
+import SplitText from "../widgets/SplitText";
 import React from 'react'
 
 const Intro = () => {
   return (
-    <section className="my-16 md:my-32">
+    <section className="my-16 md:my-32 container-wrapper">
       <div className="flex flex-col md:flex-row justify-between items-end gap-4">
         <div className="grid grid-cols-3 gap-4 md:w-2/3">
           <div className="w-full h-68 sm:h-80 flex flex-col items-start justify-start gap-2">
@@ -34,17 +36,26 @@ const Intro = () => {
           </div>
         </div>
       </div>
-      <div className="mt-8 md:mt-16 md:max-w-7xl mx-auto block">
+      <div className="mt-8 md:mt-16 py-12 md:max-w-7xl mx-auto block">
         <div className="">
-          <p className="ms-24 text-2xl md:text-3xl leading-relaxed">
-            I shape identities and guide art direction for ambitious clients seeking 
+          <p className="">
+
           </p>
-          <p className="text-2xl md:text-3xl leading-relaxed">
-            timeless sophistication with a modern edge. Through editorial sensibility and narrative depth,
-          </p>
-          <p className="text-2xl md:text-3xl leading-relaxed">
-            my work turns vision into immersive experiences that resonate and endure.
-          </p>
+          <SplitText
+            text={`I shape identities and guide art direction for ambitious clients seeking 
+timeless sophistication with a modern edge. Through editorial sensibility and narrative depth,
+my work turns vision into immersive experiences that resonate and endure.`}
+            className="text-start text-2xl md:text-3xl leading-relaxed"
+            delay={25}
+            duration={1}
+            textAlign={"start"}
+            ease="power2.out"
+            splitType={"words"}
+            from={{ opacity: 0, y: 40, scale: 0.7 }}
+            to={{ opacity: 1, y: 0, scale: 1 }}
+            threshold={0.1}
+            rootMargin="-100px"
+          />
         </div>
       </div>
     </section>

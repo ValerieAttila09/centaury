@@ -16,7 +16,7 @@ const works = [
 
 const SelectedWorks = () => {
   return (
-    <section className="my-16 md:my-32">
+    <section className="my-16 md:my-32 container-wrapper">
       <h2 className="text-center text-sm mb-8">SELECTED WORKS</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {works.map((work) => (
