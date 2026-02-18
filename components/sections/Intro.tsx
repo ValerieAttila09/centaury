@@ -29,9 +29,9 @@ const Intro = () => {
 
   return (
     <section className="my-16 md:my-32 container-wrapper">
-      <div className="flex flex-col md:flex-row justify-between items-end gap-4">
+      <div className="flex flex-col md:flex-row justify-between sm:items-end items-start gap-4">
         <div ref={container} className="grid grid-cols-3 gap-4 md:w-2/3">
-          <div className="w-full h-68 sm:h-80 md:h-92 flex flex-col items-start justify-start gap-2">
+          <div className="w-full h-56 sm:h-80 md:h-92 flex flex-col items-start justify-start gap-2">
             <div className="">
               <span className="">[1]</span>
             </div>
@@ -39,7 +39,7 @@ const Intro = () => {
               <Image src={IntroImage1} alt={"Image 1"} height={720} width={480} className="w-full h-full object-cover"/>
             </div>
           </div>
-          <div className="w-full h-68 sm:h-80 md:h-92 flex flex-col items-start justify-start gap-2">
+          <div className="w-full h-56 sm:h-80 md:h-92 flex flex-col items-start justify-start gap-2">
             <div className="">
               <span className="">[2]</span>
             </div>
@@ -47,7 +47,7 @@ const Intro = () => {
               <Image src={IntroImage2} alt={"Image 2"} height={720} width={480} className="w-full h-full object-cover"/>
             </div>
           </div>
-          <div className="w-full h-68 sm:h-80 md:h-92 flex flex-col items-start justify-start gap-2">
+          <div className="w-full h-56 sm:h-80 md:h-92 flex flex-col items-start justify-start gap-2">
             <div className="">
               <span className="">[3]</span>
             </div>

@@ -1,29 +1,45 @@
+'use client';
 
-import React from 'react'
+import React, { useRef, useEffect } from 'react';
+import Link from 'next/link';
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 interface SidebarMobileProps {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 const SidebarMobile: React.FC<SidebarMobileProps> = ({ isOpen, onClose }) => {
-  if (!isOpen) return null
+  const sidebarRef = useRef<HTMLDivElement>(null);
+  const linksRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (isOpen) {
+      gsap.to(sidebarRef.current, { y: '0%', duration: 0.5, ease: 'power2.out' });
+      gsap.fromTo('.sidebar-link', 
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, stagger: 0.1, delay: 0.3, duration: 0.4, ease: 'power2.out' }
+      );
+    } else {
+      gsap.to(sidebarRef.current, { y: '-100%', duration: 0.5, ease: 'power2.in' });
+    }
+  }, [isOpen]);
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden">
-      <div className="fixed inset-y-0 left-0 w-3/4 max-w-sm bg-[#F9F5EF] p-8">
-        <button onClick={onClose} className="absolute top-4 right-4 text-2xl">&times;</button>
-        <nav className="mt-8">
-          <ul className="space-y-4">
-            <li><a href="#" className="hover:underline" onClick={onClose}>Work</a></li>
-            <li><a href="#" className="hover:underline" onClick={onClose}>Studio</a></li>
-            <li><a href="#" className="hover:underline" onClick={onClose}>Journal</a></li>
-            <li><a href="#" className="hover:underline" onClick={onClose}>Contact</a></li>
-          </ul>
-        </nav>
+    <div 
+      ref={sidebarRef} 
+      className="fixed top-0 left-0 w-full h-screen bg-white z-40 flex flex-col items-center justify-center"
+      style={{ transform: 'translateY(-100%)' }}
+    >
+      <div ref={linksRef} className="flex flex-col items-center gap-8">
+        <Link href="/" className="sidebar-link text-3xl font-medium" onClick={onClose}>Home</Link>
+        <Link href="/work" className="sidebar-link text-3xl font-medium" onClick={onClose}>Work</Link>
+        <Link href="/showcases" className="sidebar-link text-3xl font-medium" onClick={onClose}>Showcases</Link>
+        <Link href="/contact" className="sidebar-link text-3xl font-medium" onClick={onClose}>Contact</Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SidebarMobile
