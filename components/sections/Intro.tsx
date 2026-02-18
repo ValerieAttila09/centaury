@@ -2,21 +2,40 @@
 
 import Image from "next/image";
 import SplitText from "../widgets/SplitText";
-import React from 'react'
+import React, { useRef } from 'react'
 import IntroImage1 from "../../assets/images/pascal-m-4PchFKrUw84-unsplash.jpg"
 import IntroImage2 from "../../assets/images/kate-laine-KvX6DQsOKrc-unsplash.jpg"
 import IntroImage3 from "../../assets/images/courtney-smith-AihDkhGvnO8-unsplash.jpg"
+import { useGSAP } from "@gsap/react";
+import gsap from 'gsap';
 
 const Intro = () => {
+
+  const container = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const images = gsap.utils.toArray(".intro-image-wrapper");
+    gsap.fromTo(images, {
+      opacity: 0,
+      y: 40,
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.2,
+    });
+  }, { scope: container });
+
   return (
     <section className="my-16 md:my-32 container-wrapper">
       <div className="flex flex-col md:flex-row justify-between items-end gap-4">
-        <div className="grid grid-cols-3 gap-4 md:w-2/3">
+        <div ref={container} className="grid grid-cols-3 gap-4 md:w-2/3">
           <div className="w-full h-68 sm:h-80 md:h-92 flex flex-col items-start justify-start gap-2">
             <div className="">
               <span className="">[1]</span>
             </div>
-            <div className="w-full h-full relative overflow-hidden bg-gray-300">
+            <div className="w-full h-full relative overflow-hidden intro-image-wrapper">
               <Image src={IntroImage1} alt={"Image 1"} height={720} width={480} className="w-full h-full object-cover"/>
             </div>
           </div>
@@ -24,7 +43,7 @@ const Intro = () => {
             <div className="">
               <span className="">[2]</span>
             </div>
-            <div className="w-full h-full relative overflow-hidden bg-gray-400">
+            <div className="w-full h-full relative overflow-hidden intro-image-wrapper">
               <Image src={IntroImage2} alt={"Image 2"} height={720} width={480} className="w-full h-full object-cover"/>
             </div>
           </div>
@@ -32,7 +51,7 @@ const Intro = () => {
             <div className="">
               <span className="">[3]</span>
             </div>
-            <div className="w-full h-full relative overflow-hidden bg-gray-500">
+            <div className="w-full h-full relative overflow-hidden intro-image-wrapper">
               <Image src={IntroImage3} alt={"Image 3"} height={720} width={480} className="w-full h-full object-cover"/>
             </div>
           </div>
@@ -72,4 +91,4 @@ my work turns vision into immersive experiences that resonate and endure.`}
   )
 }
 
-export default Intro
+export default Intro;
