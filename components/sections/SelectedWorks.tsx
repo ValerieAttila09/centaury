@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,8 +24,8 @@ const SelectedWorks = () => {
       stagger: 0.2,
       scrollTrigger: {
         trigger: container.current,
-        start: 'top 80%', // Memulai animasi ketika bagian atas kontainer berada 80% dari atas viewport
-        toggleActions: 'play none none none' // Hanya memutar animasi sekali saat masuk
+        start: 'top 80%',
+        toggleActions: 'play none none none'
       }
     });
   }, { scope: container });
@@ -46,7 +47,7 @@ const SelectedWorks = () => {
         ))}
       </div>
       <div className="text-center mt-8">
-        <a href="#" className="hover:underline text-sm">Explore projects...</a>
+        <Link href="#" className="hover:underline text-sm">Explore projects...</Link>
       </div>
     </section>
   )
