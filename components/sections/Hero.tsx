@@ -5,7 +5,7 @@ import BlurText from '../widgets/BlurText'
 
 const Hero = () => {
   return (
-    <section className="my-16 md:my-32 container-wrapper">
+    <section className="my-16 md:my-26 container-wrapper">
       <div className="grid grid-cols-12">
         <div className="col-span-4"></div>
         <div className="col-span-8">
