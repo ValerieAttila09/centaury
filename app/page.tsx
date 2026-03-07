@@ -5,6 +5,7 @@ import Services from '@/components/sections/Services'
 import Showcase from '@/components/sections/Showcase'
 import Footer from '@/components/sections/Footer'
 import { services_data } from '@/lib/constants'
+import ContactSection from '@/components/sections/Contact'
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         ))}
       </div>
       <Showcase />
+      <ContactSection />
       <Footer />
     </div>
   )
