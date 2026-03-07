@@ -57,8 +57,8 @@ const ContactSection = () => {
           </aside>
 
           <div className="flex-1 flex flex-col gap-6">
-            <div className="rounded-none overflow-hidden border border-neutral-200 shadow-sm">
-              <MapContainer center={position} zoom={15} style={{ height: '280px', width: '100%' }} scrollWheelZoom={false}>
+            <div className="rounded-none overflow-hidden ">
+              <MapContainer center={position} zoom={15} style={{ height: '360x', width: '100%' }} scrollWheelZoom={false}>
                 <TileLayer
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -71,14 +71,14 @@ const ContactSection = () => {
               </MapContainer>
             </div>
 
-            <div className="w-full rounded-none border border-neutral-200 bg-white shadow-sm p-6 flex flex-col gap-2">
+            <div className="w-full rounded-none bg-white flex flex-col gap-2 mb-6">
               <h3 className="font-bold text-lg mb-1">{LOCATIONS[selected].name}</h3>
               <p className="text-sm text-neutral-700">{LOCATIONS[selected].address}</p>
               <p className="text-sm text-neutral-700">{LOCATIONS[selected].phone}</p>
               <p className="text-sm text-neutral-700">{LOCATIONS[selected].email}</p>
             </div>
 
-            <form className="w-full rounded-none border border-neutral-200 bg-white shadow-sm p-6 flex flex-col gap-4">
+            <form className="w-full rounded-none bg-white flex flex-col gap-4">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-1">
                   <label className="block text-sm font-medium mb-1">Name <span className="text-red-500">*</span></label>
